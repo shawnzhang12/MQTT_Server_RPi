@@ -23,6 +23,6 @@ The broker status can be confirmed via:
 
 
 
-### Setting up the ESP8266
+### Setting up the ESP8266 for Accelerometer (ADXL362)
 
 - fill in after exams
