@@ -23,6 +23,19 @@ The broker status can be confirmed via:
 
 
 
-### Setting up the ESP8266
+### Setting up the ESP8266 
 
-- fill in after exams
+I used the Arduino IDE, so a couple things that had to be done were:
+
+- Navigate to Tools --> Board, and select "NodeMCU 1.0 (ESP-12E Module)"
+
+- In Tools, Select the correct port where the board is attached
+- In Tools --> Manage Libraries, install the PubSubClient library to connect to the MQTT server.
+
+https://appcodelabs.com/introduction-to-iot-how-to-build-a-simple-mqtt-subscriber-using-esp8266
+
+finished this tutorial, can publish to the led on the esp8266
+
+- need to figure out how to publish temp and accel data from esp8266 to a topic
+
+  
