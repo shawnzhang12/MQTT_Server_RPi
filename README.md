@@ -23,6 +23,7 @@ The broker status can be confirmed via:
 
 
 
+<<<<<<< HEAD
 ### Setting up the ESP8266 
 
 I used the Arduino IDE, so a couple things that had to be done were:
@@ -39,3 +40,8 @@ finished this tutorial, can publish to the led on the esp8266
 - need to figure out how to publish temp and accel data from esp8266 to a topic
 
   
+=======
+### Setting up the ESP8266 for Accelerometer (ADXL362)
+
+- fill in after exams
+>>>>>>> 06d10b963dbbc43b634afed2964bf84751657739

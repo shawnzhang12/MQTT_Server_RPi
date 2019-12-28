@@ -2,8 +2,8 @@
 #include <PubSubClient.h>
 #include <SPI.h>
 #include <ADXL362.h>
-//#include <stdlib.h>
-//#include <stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 ADXL362 xl;
 
@@ -16,8 +16,8 @@ String X, Y, Z;
 #define MAX_MSG_LEN (128)
 
 //Wifi configuration
-const char* ssid = "CIK1000M_AC-3bd4";
-const char* password = "3c9066b63bd4";
+const char* ssid = "ssid";
+const char* password = "password";
 
 
 //MQTT configuration
