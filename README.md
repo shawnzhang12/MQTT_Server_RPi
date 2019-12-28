@@ -37,6 +37,8 @@ https://appcodelabs.com/introduction-to-iot-how-to-build-a-simple-mqtt-subscribe
 
 finished this tutorial, can publish to the led on the esp8266
 
+<img src="images/adxl362_nodemcu.jpg" width="200">
+
 - need to figure out how to publish temp and accel data from esp8266 to a topic
 
   
