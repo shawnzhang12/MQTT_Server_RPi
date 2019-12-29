@@ -1,8 +1,8 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include <SPI.h>
-#include <stdlib.h>
-#include <stdio.h>
+//#include <stdlib.h>
+//#include <stdio.h>
 #include <DHT.h>
 
 #define DHTPIN 2     // what pin we're connected to
@@ -43,10 +43,15 @@ void loop() {
   }
 
   float t = dht.readTemperature();
-  char result[8];
+  char result[256];
+
+String num = String(t, 2);   
+String head = String("The temperature is ");  
+String sresult = String(head + num);  // concatenating two strings
   
-  dtostrf(t, 6, 2, result);
-  result = "The temperature is " + result;
+  sresult.toCharArray(result, 30);
+  //dtostrf(t, 6, 2, result);
+  //result = "The temperature is " + result;
   client.publish(topic, result);
   client.loop();
   delay(2000);
@@ -70,8 +75,7 @@ void connectWifi() {
 void connectMQTT() {
   // Wait until we're connected
   while (!client.connected()) {
-    String clientId = "ESP8266-ACCEL";
-    Serial.printf("MQTT connecting as client %s...\n", clientId.c_str());
+    String clientId = "ESP8266-TEMP";
     // Attempt to connect
     if (client.connect(clientId.c_str())) {
       Serial.println("MQTT connected");
