@@ -24,6 +24,7 @@ The broker status can be confirmed via:
 
 
 <<<<<<< HEAD
+
 ### Setting up the ESP8266 
 
 I used the Arduino IDE, so a couple things that had to be done were:
@@ -33,17 +34,21 @@ I used the Arduino IDE, so a couple things that had to be done were:
 - In Tools, Select the correct port where the board is attached
 - In Tools --> Manage Libraries, install the PubSubClient library to connect to the MQTT server.
 
-https://appcodelabs.com/introduction-to-iot-how-to-build-a-simple-mqtt-subscriber-using-esp8266
+#### Accelerometer (ADXL362)
 
-finished this tutorial, can publish to the led on the esp8266
+Setting up the accelerometer is quite simple, as the pins are already in order as the ESP8266 requires them to be (The CLK, MOSI, MISO, CS...). Now just upload the code given in esp8266_accel and it should output the x, y, z values for acceleration.
+
+
 
 <img src="images/adxl362_nodemcu.jpg" width="200">
 
-- need to figure out how to publish temp and accel data from esp8266 to a topic
 
-  
-=======
-### Setting up the ESP8266 for Accelerometer (ADXL362)
 
-- fill in after exams
->>>>>>> 06d10b963dbbc43b634afed2964bf84751657739
+#### Temperature Sensor (DHT 22 (AM2302))
+
+For the sensor, connect Pin 1 to Vin on the ESP8266, Pin 2 to GPIO2 (any GPIO pin will work), and Pin 4 to Gnd. Code is given under the esp8266_temp folder. Notice that the sensor gives readings around 17-18 degrees, which is quite cold but makes sense as it was in a basement. There was a slow temperature rise as I held my finger on the sensor.
+
+<img src="images/dht2_nodemcu.jpg" width="400">
+
+
+

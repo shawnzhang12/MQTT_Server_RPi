@@ -2,22 +2,18 @@
 #include <PubSubClient.h>
 #include <SPI.h>
 #include <ADXL362.h>
-#include <stdlib.h>
-#include <stdio.h>
 
 ADXL362 xl;
 
-int16_t temp;
+
 int16_t XValue, YValue, ZValue, Temperature;
-char *XString, *YString, *ZString;
-String X, Y, Z;
 
 // max received message length
 #define MAX_MSG_LEN (128)
 
 //Wifi configuration
-const char* ssid = "ssid";
-const char* password = "password";
+const char* ssid = "CIK1000M_AC-3bd4";
+const char* password = "3c9066b63bd4";
 
 
 //MQTT configuration
@@ -33,7 +29,6 @@ void setup() {
   Serial.begin(115200);
   xl.begin(10);                   // Setup SPI protocol, issue device soft reset
   xl.beginMeasure();              // Switch ADXL362 to measure mode  
-  Serial.println("Start Demo: Simple Read");
   
   connectWifi();
   client.setServer(serverHostname, 1883);
@@ -47,17 +42,22 @@ void loop() {
   }
   xl.readXYZTData(XValue, YValue, ZValue, Temperature); 
 
-  X = String(XValue);
-  X.toCharArray(XString, 10);
-  Y = String(YValue);
-  Y.toCharArray(YString, 10);  
-  Z = String(ZValue);
-  Z.toCharArray(ZString, 10);
+  char X[50];
+  char Y[50];
+  char Z[50];
+  String xval = String(XValue, 3);   
+  String yval = String(YValue, 3);   
+  String zval = String(ZValue, 3);   
 
-
-  client.publish(topic, XString);
-  client.publish(topic, YString);  
-  client.publish(topic, XString);
+  String xresult = String("The xvalue is " + xval);  
+  String yresult = String("The yvalue is " + yval);  
+  String zresult = String("The zvalue is " + zval);  
+  xresult.toCharArray(X, 30);
+  yresult.toCharArray(Y, 30);
+  zresult.toCharArray(Z, 30);
+  client.publish(topic, X);
+  client.publish(topic, Y);
+  client.publish(topic, Z);
   client.loop();
   delay(500);
 }
@@ -86,7 +86,7 @@ void connectMQTT() {
     if (client.connect(clientId.c_str())) {
       Serial.println("MQTT connected");
       // Once connected, publish an announcement...
-      client.publish(topic, "hello from ESP8266");
+      client.publish(topic, "hello from ESP8266, accelerometer data");
       // ... and resubscribe
       // client.subscribe(topic);
     } else {
