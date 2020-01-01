@@ -49,9 +49,9 @@ void loop() {
   String yval = String(YValue, 3);   
   String zval = String(ZValue, 3);   
 
-  String xresult = String("The xvalue is " + xval);  
-  String yresult = String("The yvalue is " + yval);  
-  String zresult = String("The zvalue is " + zval);  
+  String xresult = String("The x_accel value is " + xval);  
+  String yresult = String("The y_accel value is " + yval);  
+  String zresult = String("The z_accel value is " + zval);  
   xresult.toCharArray(X, 30);
   yresult.toCharArray(Y, 30);
   zresult.toCharArray(Z, 30);

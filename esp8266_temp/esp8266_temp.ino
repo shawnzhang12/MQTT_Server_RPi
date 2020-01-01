@@ -1,8 +1,6 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include <SPI.h>
-//#include <stdlib.h>
-//#include <stdio.h>
 #include <DHT.h>
 
 #define DHTPIN 2     // what pin we're connected to
@@ -45,13 +43,11 @@ void loop() {
   float t = dht.readTemperature();
   char result[256];
 
-String num = String(t, 2);   
-String head = String("The temperature is ");  
-String sresult = String(head + num);  // concatenating two strings
+  String num = String(t, 2);   
+  String head = String("The temperature is ");  
+  String sresult = String(head + num);  // concatenating two strings
   
   sresult.toCharArray(result, 30);
-  //dtostrf(t, 6, 2, result);
-  //result = "The temperature is " + result;
   client.publish(topic, result);
   client.loop();
   delay(2000);
