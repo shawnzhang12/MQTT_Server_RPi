@@ -61,3 +61,9 @@ For the mesh network of 2 arduinos and the ESP8266, nrf24l01 transceivers were u
 <img src="images/rf_esp.png" width="400">
 
 With one arduino with a temperature sensor and the other with an accelerometer, they can send data to the master node (ESP8266)  through each other or directly, depending on the distance between the nodes. 
+
+#### Running on the ATMega328 Chips
+
+In order to run on the chips alone, rewire the components based on the pin mapping given below, and power the VCC pin with 5V. Note that the nrf24l01 runs on 3.3V, so a voltage divider (5V --> 1K resistor (3.3V here) --> 2K resistor --> GND) or a level converter may be needed.
+
+<img src="images/atmega_pin_mapping.png" width="500">
