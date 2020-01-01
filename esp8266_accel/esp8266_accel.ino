@@ -12,8 +12,8 @@ int16_t XValue, YValue, ZValue, Temperature;
 #define MAX_MSG_LEN (128)
 
 //Wifi configuration
-const char* ssid = "CIK1000M_AC-3bd4";
-const char* password = "3c9066b63bd4";
+const char* ssid = "ssid";
+const char* password = "password";
 
 
 //MQTT configuration
