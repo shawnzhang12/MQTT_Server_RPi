@@ -64,6 +64,6 @@ With one arduino with a temperature sensor and the other with an accelerometer, 
 
 #### Running on the ATMega328 Chips
 
-In order to run on the chips alone, rewire the components based on the pin mapping given below, and power the VCC pin with 5V. Note that the nrf24l01 runs on 3.3V, so a voltage divider (5V --> 1K resistor (3.3V here) --> 2K resistor --> GND) or a level converter may be needed.
+In order to run on the chips alone, rewire the components based on the pin mapping given below, and power the VCC pin with 5V. Note that the nrf24l01 runs on 3.3V, so a level converter should be used.
 
 <img src="images/atmega_pin_mapping.png" width="500">
